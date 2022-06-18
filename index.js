@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -13,8 +15,8 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', (req, res) => res.send('Server Running'));
 
 app.use('/posts', postRoutes);
-app.use('/users', postRoutes);
-app.use('/items', postRoutes);
+app.use('/users', userRoutes);
+app.use('/items', itemRoutes);
 
 app.listen(port, () => {
     console.log(`Server listening on port: ${port}...`);

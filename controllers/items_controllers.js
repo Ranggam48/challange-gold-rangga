@@ -1,4 +1,15 @@
+const client = require('../config/db');
+
 const addItem = (req, res) =>{
+
+    client.query(`
+    INSERT INTO items(name, price)
+    VALUES('sepatu', 50000)`,    
+    (err, res) => {
+        console.log(err, '<<<<<<<<');
+
+    });
+
     const itemName = req.body.itemName;
 
     return res.status(201).json({
